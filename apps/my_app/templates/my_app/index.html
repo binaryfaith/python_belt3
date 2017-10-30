@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+
+<body>
+    {% if messages %}
+    <ul>
+        {% for message in messages %} {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <li>
+            <h2>{{ message }}</h2>
+        </li>
+        {% else %}
+        <li>
+            <h2>{{ message }}</h2>
+        </li>
+        {% endif %} {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        {% csrf_token %}
+            <label> Name:</label><br>
+            <input type="text" name="name" id="name"><br><br>
+            <label> Email:</label><br>
+            <input type="text" name="email" id="email"><br><br>
+            <label> Password:</label><br>
+            <input type="password" name="password" id="password"><br><br>
+            <label>Confirm PW:</label><br>
+            <input type="password" name="confirm_password" id="confirm_password"><br><br>
+            <label for="date_of_birth">Date of Birth:</label><br>
+            <input type="text" name="date_of_birth" id="date_of_birth">
+        </h2>
+        <button>Submit</button><br>
+    </form>
+    <h1>Login</h1>
+    <form action='/login' method='post'>
+        {% csrf_token %}
+        <h2>
+            <label> Email:</label><br>
+            <input type="email" name="email" id="email"><br>
+            <label> Password:</label><br>
+            <input type="password" name="password" id="password"> <br>
+        </h2>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
